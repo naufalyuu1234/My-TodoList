@@ -60,7 +60,7 @@ export default function Todo() {
   const timeUpdate = (id: number, newTime: string) => {
     setTodos(
       todos.map((todo) =>
-        todo.id === id ? { ...todo, timeRange: newTime } : todo,
+        todo.id === id ? { ...todo, customTimes: newTime, timeRange: newTime } : todo,
       ),
     );
   };
@@ -220,9 +220,9 @@ export default function Todo() {
               todos.map((item) => (
                 <div
                   key={item.id}
-                  className="flex items-center justify-between bg-white p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all group"
+                  className="flex flex-col md:flex-row items-start md:items-center justify-between bg-white p-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all group"
                 >
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 w-full md:flex-1">
                     {/* Input centang */}
                     <input
                       type="checkbox"
@@ -259,7 +259,7 @@ export default function Todo() {
 
                   {/* Kostumisasi waktu fokus */}
                   {/* Input waktu spesifik */}
-                  <div className="flex flex-col items-start gap-1">
+                  <div className="flex flex-col md:flex-row items-start gap-1 mt-3 md:mt-0 w-full md:w-auto">
                     <p className="text-[10px] text-slate-500 font-medium">
                       Atur Waktu sesuka anda disini!
                     </p>
@@ -267,7 +267,7 @@ export default function Todo() {
                       type="time"
                       value={item.customTimes || ""}
                       onChange={(e) => timeUpdate(item.id, e.target.value)}
-                      className="text-xs font-medium text-slate-600 bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:bg-white focus:border-blue-400 focus:ring-4 focus:ring-blue-100transition-all duration-200 hover:border-slate-300"
+                      className="w-full md:w-auto text-xs font-medium text-slate-600 bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 outline-none focus:ring-2 focus:bg-white focus:border-blue-400 focus:ring-4 focus:ring-blue-100 transition-all duration-200 hover:border-slate-300"
                     />
                   </div>
                   {/* Tombol Hapus (Muncul saat hover) */}
