@@ -9,7 +9,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "Dashboard", path: "/" },
     { name: "Features", path: "/features" },
-    { name: "Contact", path: "/contact" },
+    { name: "About", path: "/about" },
   ];
 
   // navbar otomatis tertutup
@@ -108,3 +108,4 @@ export default function Navbar() {
     </nav>
   );
 }
+

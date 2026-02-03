@@ -64,13 +64,12 @@ export default function JournalEditor({
             {blocks.map((block, index) => (
               <EditorBlock
                 key={block.id}
-                id={block.id}
-                type={block.type}
-                content={block.content}
-                src={block.src}
-                onUpdate={onBlockContentChange}
-                onKeyDown={(e) => onBlockKeyDown(e, block.id, index)}
+                block={block}
+                index={index}
+                onContentChange={onBlockContentChange}
+                onKeyDown={onBlockKeyDown}
                 onDelete={onBlockDelete}
+                onAddBlock={onAddBlock}
               />
             ))}
           </div>
